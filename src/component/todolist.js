@@ -1,24 +1,23 @@
 // import React, { useState } from "react";
 // import Todoitem from './todoitem';
 
-
 import React from 'react';
 
-const Todo = ({ list, onRemove }) => {
+const Todo = ({ todo, onRemove }) => {
   return (
     <div>
-      <b>{Todo.title}</b> 
-      <span>({Todo.work})</span>
-      <button onClick={() => onRemove(Todo.id)}>삭제</button>
+      <b>{todo.title}</b> 
+      <span>({todo.work})</span>
+      <button onClick={() => onRemove(todo.id)}>삭제</button>
     </div>
   );
 };
 
-const TodoList = ({ lists, onRemove }) => {
+const TodoList = ({ todos, onRemove }) => {
   return (
     <div>
-      {lists.map((list) => (
-        <List list={list} key={list.id} onRemove={onRemove} />
+      {todos.map((todo) => (
+        <Todo todo={todo} key={todo.id} onRemove={onRemove} />
       ))}
     </div>
   );

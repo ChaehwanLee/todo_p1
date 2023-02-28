@@ -1,20 +1,72 @@
-import React from "react";
+// import React from "react";
+import React, { useRef, useState } from 'react';
 import Todo from "./component/todo";
-import Todoitems from "./component/todoitem";
+import Todocreate from "./component/todoCreate";
 import Todolist from "./component/todolist";
+// import Itemlist from "./component/todoitem";
 import './App.css';
 
-function App(){
+const App = () => {
+  const[inputs, setInputs] = useState({
+    title:'',
+    work:'',
+  });
+  const { title, work} = inputs;
 
+  const onChange =(a) => {
+    const {title, value} = a.target;
+    setInputs((lasttodos)=>({
+      ...lasttodos,
+      [title]: value,
+    }));
+  };
+
+  const [todo, setTodo] = useState([
+    {
+      id: 1,
+      title: '기상',
+      work: '물 한 잔 마시기',
+    },
+    {
+      id: 2,
+      title: '뉴스보기',
+      work: '경제 뉴스 읽기',
+    },
+    {
+      id: 3,
+      title: '일과시작',
+      work: '이메일 처리하기',
+    },
+  ]);
+
+  const nextId = useRef(4);
+  const onCreate = () => {
+    const titles ={
+      id: nextId.current,
+      title,
+      work,
+    };
+  setTodo((lastTitle)=>[...lastTitle, titles]);
+    setInputs({
+      title: '',
+      work: '',
+    });
+    nextId.current += 1;
+  };
+  
   return (
-    <div>
-    
+
+      <div>
       <Todo />
-      <Todolist />
-      <Todoitems />
+      <Todocreate
+      title={title}
+      work={work}
+      onChange={onChange}
+      onCreate={onCreate} />
       
-    </div>
-  );
-}
+      <Todolist todo={todo}/>
+      </div>
+    );
+};
 
 export default App;
