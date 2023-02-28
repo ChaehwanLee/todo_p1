@@ -1,13 +1,15 @@
 // import React, { useState } from "react";
 // import Todoitem from './todoitem';
 
+
 import React from 'react';
 
-const List = ({ list, onRemove }) => {
+const Todo = ({ list, onRemove }) => {
   return (
     <div>
-      <b>{list.title}</b> <span>({list.work})</span>
-      <button onClick={() => onRemove(list.id)}>삭제</button>
+      <b>{Todo.title}</b> 
+      <span>({Todo.work})</span>
+      <button onClick={() => onRemove(Todo.id)}>삭제</button>
     </div>
   );
 };
