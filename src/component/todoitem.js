@@ -1,8 +1,29 @@
-import React from "react";
+import React from 'react';
 
-function Todoitem({id, fin, text}){
-    const [id, setId]
-}
+const DeleteButton = (props) => {
+  return (
+    <button onClick={props.onClick}>Delete</button>
+  );
+};
+
+export default DeleteButton;
+
+{/* <button onClick={() => {
+    console.log(id)
+    if (window.confirm('${id}의 할 일 을 삭제하시겠습니까')) {
+        onDelete(id);
+    }
+
+}}
+> 삭제하시겠습니까
+
+</button> */}
+
+
+
+// function Todoitem({id, fin, text}){
+//     const [id, setId]
+// }
 
 
 // import React from 'react';
