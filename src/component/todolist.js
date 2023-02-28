@@ -3,7 +3,11 @@ import Todoitem from './todoitem';
 
 function Todolist(){
     const [count, setCount] = useState(0);
-    const [todos] = useState();
+    const [todos, setTodos] = useState({
+        id: "",
+        text: "",
+        fin: ""
+    });
     return (
         <div>
             <p>{count}번 만들었습니다</p>
