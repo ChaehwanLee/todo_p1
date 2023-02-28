@@ -39,7 +39,7 @@ const App = () => {
     },
   ]);
 
-  const nextId = useRef(4);
+  const nextId = useRef(0);
   const onCreate = () => {
     const titles ={
       id: nextId.current,
