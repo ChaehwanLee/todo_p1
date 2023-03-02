@@ -11,10 +11,10 @@ const App = () => {
     title:'',
     work:'',
   });
-  const { title, work} = inputs;
+  const { title, work } = inputs;
 
-  const onChange =(a) => {
-    const {title, value} = a.target;
+  const onChange =(e) => {
+    const {title, value} = e.target;
     setInputs((lasttodos)=>({
       ...lasttodos,
       [title]: value,
@@ -46,6 +46,7 @@ const App = () => {
       title,
       work,
     };
+
   setTodo((lastTitle)=>[...lastTitle, titles]);
     setInputs({
       title: '',
@@ -64,7 +65,7 @@ const App = () => {
       onChange={onChange}
       onCreate={onCreate} />
       
-      <Todolist todo={todo}/>
+      <Todolist todo={todo} onRemove={onRemove}/>
       </div>
     );
 };
