@@ -10,9 +10,10 @@ const Todo = ({ todo, onRemove }) => {
   );
 };
 
-const TodoList = ({ todos, onRemove }) => {
+const TodoList = ({ todos = [], onRemove }) => {
   return (
     <div>
+    <h1>리스트</h1>
       {todos.map((todo) => (
         <Todo todo={todo} key={todo.id} onRemove={onRemove} />
       ))}
